@@ -1,0 +1,13 @@
+@import "../../core/variables";
+
+
+.App-header{
+    width: 100%;
+    height: 10rem;
+    background-color: black;
+    &__title{
+      font-family: $font-primary;
+      text-align: center;
+      color:white;
+    }
+  }
