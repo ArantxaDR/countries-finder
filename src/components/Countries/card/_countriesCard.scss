@@ -1,0 +1,23 @@
+@import "../../../core/variables";
+
+.card{
+	border:2px red solid ;
+	box-shadow: 0 0 5px rgba(196, 98, 98, 0.1);
+	&__img{
+		width: 100%;
+		display: block;
+	}
+	&__content{
+		font-size: 0.9em;
+		font-family: $font-secondary;
+		padding: 1rem;
+		background-color: #eee;
+		&-info{
+			line-height: 2;
+		}
+	}
+}
+.material-icons{
+	position: relative;
+	left: 10%;
+}
