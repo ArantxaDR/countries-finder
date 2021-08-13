@@ -1,5 +1,6 @@
 export interface Country{
     name: string;
-    topLevelDomain: string[];
+    flag: string;
+    favorit: boolean;
     
 }
