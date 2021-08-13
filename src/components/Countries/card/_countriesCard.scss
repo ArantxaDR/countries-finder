@@ -1,23 +1,24 @@
 @import "../../../core/variables";
 
 .card{
-	border:2px red solid ;
-	box-shadow: 0 0 5px rgba(196, 98, 98, 0.1);
+	border-radius: 10% 3% 15% 0;
+	background-color: $color-backcards;
 	&__img{
-		width: 100%;
+		width: 50%;
+		padding: 1rem;
 		display: block;
 	}
 	&__content{
 		font-size: 0.9em;
 		font-family: $font-secondary;
 		padding: 1rem;
-		background-color: #eee;
+		
 		&-info{
 			line-height: 2;
 		}
 	}
 }
 .material-icons{
-	position: relative;
-	left: 10%;
+	margin-left: .5em;
+
 }
