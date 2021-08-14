@@ -1,5 +1,5 @@
 import React, { useEffect, useState }from 'react';
-import {Country} from '../../common/interfaces/Country';
+import {WorldMap} from 'react-svg-worldmap';
 import './App.scss';
 import Header from '../Header/Header';
 import CountriesList from '../Countries/list/CountriesList';
@@ -16,9 +16,15 @@ function App() {
     countriesService.getAllCountries().then((data) => setCountries(data));
   }, []);
 
+  const data = 
+  [
+    { country: "es", value: 1}
+  ]
+
   return (
     <main className="App">
       <Header/>
+      <WorldMap color="green" title ="Fav countries" size ="responsive" data = {data}/>
       <CountriesList countries = {countries}/>
     </main>
   );
