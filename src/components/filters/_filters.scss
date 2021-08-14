@@ -12,6 +12,7 @@
 	margin-bottom: 1rem;
 	&__label{
 		color: $color-primary;
+		font-family: $font-secondary;
 		margin-bottom: 0.5rem;		
 	}
 	&__input{
@@ -25,6 +26,7 @@
     }
 	.form{
 		flex-direction: row;
+		align-items: flex-start;
 		&__label{
 			margin-right: 0.3rem;		
 		}
@@ -40,6 +42,7 @@
     }
 	.form{
 		flex-direction: row;
+		align-items: flex-start;
 		&__label{
 			margin-right: 0.5rem;		
 		}
