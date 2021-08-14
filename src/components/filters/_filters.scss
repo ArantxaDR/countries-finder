@@ -1,0 +1,50 @@
+@import "../../core/variables";
+
+.wrapper{
+	margin-top:0.5rem;
+}
+
+.form{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
+	&__label{
+		color: $color-primary;
+		margin-bottom: 0.5rem;		
+	}
+	&__input{
+		margin-bottom: 1rem;
+	}
+}
+
+@media (min-width: 600px) and (max-width: 1000px)  {
+    .wrapper{
+      margin-top: 1rem;
+    }
+	.form{
+		flex-direction: row;
+		&__label{
+			margin-right: 0.3rem;		
+		}
+		&__input{
+			margin-right: 1rem;
+		}
+	}
+  }
+
+  @media (min-width:1001px) {
+    .wrapper{
+      margin-top: 2rem;
+    }
+	.form{
+		flex-direction: row;
+		&__label{
+			margin-right: 0.5rem;		
+		}
+		&__input{
+			margin-right: 1.5rem;
+		}
+	}
+  }

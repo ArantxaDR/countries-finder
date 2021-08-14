@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 
 export default function CountriesCard(props:any) {
-	console.log(props);
+	
 	return (
 	<div className="card">
 		<img src={props.country.flag} alt={`${props.country.name} flag`} title={`${props.country.name} flag`} className="card__img" />
