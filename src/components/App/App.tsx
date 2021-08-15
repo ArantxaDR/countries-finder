@@ -19,7 +19,7 @@ function App() {
    useEffect(() => {
     countriesService.getAllCountries().then((data) => {
       setCountries(data);
-      setCountriesFiltered(data);
+      setCountriesFiltered(data);            
     });
   }, []);
 
@@ -58,9 +58,11 @@ function App() {
   const renderCountryDetail = (props:any) => {
     
     const countryName = props.match.params.name;
+
       
     const findCountry = countries?.find((country) => country.name === countryName);
-     
+   
+    
     return <CountryDetail country={findCountry} />;
   };
   
