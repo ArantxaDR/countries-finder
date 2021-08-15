@@ -3,13 +3,12 @@ import React, { useEffect, useState }from 'react';
 import './App.scss';
 import Header from '../Header/Header';
 import CountriesList from '../Countries/list/CountriesList';
+import CountryDetail from '../Countries/details/CountryDetail';
 import { countriesService } from '../../common/services/CountriesService';
 import { IFilter } from '../../common/interfaces/IFilter';
-
+import { Route } from 'react-router-dom';
 
 function App() {
-
-  
 
    const [countries, setCountries] = useState<any[]>(); 
    const [countriesFiltered, setCountriesFiltered] = useState<any[]>(); 
@@ -55,9 +54,16 @@ function App() {
     }
     //setCountriesFiltered(countries);
   };
-
-
-
+  
+  const renderCountryDetail = (props:any) => {
+    
+    const countryName = props.match.params.name;
+      
+    const findCountry = countries?.find((country) => country.name === countryName);
+     
+    return <CountryDetail country={findCountry} />;
+  };
+  
   // const data = 
   // [
   //   { country: "es", value: 1}
@@ -65,9 +71,17 @@ function App() {
 
   return (
     <main className="App">
+     
       <Header handleFilters={handleFilters}/>
       {/* <WorldMap color="green" title ="Fav countries" size ="responsive" data = {data}/> */}
+      <Route exact path ="/">
       <CountriesList countries = {countriesFiltered}/>
+      </Route>
+      <Route path="/countries/:name" render= 
+      {renderCountryDetail}>
+
+      </Route>
+        
     </main>
   );
 }

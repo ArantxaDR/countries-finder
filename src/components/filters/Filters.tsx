@@ -18,7 +18,7 @@ export default function Filters(props:any) {
 		<section className="wrapper">
 			<form className="form">
 				<label htmlFor="name" className="form__label">Country name</label>
-				<input type="text" className="form__input" id="name" aria-placeholder="Find country by name" name="name" ref={refName}/>
+				<input type="text" className="form__input" id="name" placeholder='Find country by name' name="name" ref={refName}/>
 
 				<label htmlFor="region" className="form__label">Region</label>
 				<select name="region" id="region" className="form__input" ref={refRegion}>
@@ -31,7 +31,7 @@ export default function Filters(props:any) {
 				</select>
 
 				<label htmlFor="language" className="form__label">Language</label>
-				<input type="text" className="form__input" id="language" aria-placeholder="E.g japanese" name="language" ref={refLanguage}/>
+				<input type="text" className="form__input" id="language" placeholder="E.g japanese" name="language" ref={refLanguage}/>
 
 			</form>
 			<button className="wrapper__btn" onClick={handleSubmit}>Search<i className="material-icons" >search</i></button>

@@ -14,16 +14,30 @@
 		
 	}
 	&__content{
-		font-size: 0.9em;
+		font-size: 1em;
+		font-weight: bold;
 		font-family: $font-secondary;
 		padding: 1rem;
-		
-		&-info{
-			line-height: 2;
+	}
+	&__info{
+		display: flex;
+    	flex-direction: row;
+    	align-content: center;
+    	justify-content: space-around;
+    	align-items: center;
+		margin-bottom: 0.5em;
+		&-btn{
+			background-color: transparent;
+			border: none;
+			transition: ease 1s;
+    		outline: none;
+		}
+		&-link{
+			color: $color-secondary;
 		}
 	}
 }
-.material-icons{
-	margin-left: 1rem;
+
+.material-icons:focus{
 	font-size: medium;
 }
