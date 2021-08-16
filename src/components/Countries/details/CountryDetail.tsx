@@ -1,16 +1,23 @@
 
 import React from 'react';
 import { Link } from "react-router-dom";
+import { WorldMap } from 'react-svg-worldmap';
 import './_countryDetail.scss';
 
 export default function CountryDetail (props:any) {
+	
 	if (props.country === undefined) {
 		return <h1>Ups! Wrong path</h1>;
 	}
 
 	const country =props.country;
 	
-	console.log(country);
+	const data =
+	[
+     { country: country.alpha2Code, value: country.population}
+	]
+	
+	
 	return (
 		
 	<section className="details__wrapper">
@@ -42,8 +49,9 @@ export default function CountryDetail (props:any) {
 				</div>
 				
 			</div>         
-                
+            <WorldMap color= "darkred" value-suffix="people" size="responsive" data={data}/>
         </article>
+		
 	</section>
 	)
 }

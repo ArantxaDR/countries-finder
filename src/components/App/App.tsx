@@ -1,5 +1,4 @@
 import React, { useEffect, useState }from 'react';
-//import {WorldMap} from 'react-svg-worldmap';
 import './App.scss';
 import Header from '../Header/Header';
 import CountriesList from '../Countries/list/CountriesList';
@@ -66,10 +65,7 @@ function App() {
     return <CountryDetail country={findCountry} />;
   };
   
-  // const data = 
-  // [
-  //   { country: "es", value: 1}
-  // ]
+
 
   return (
     <main className="App">
