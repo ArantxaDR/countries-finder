@@ -22,7 +22,8 @@ function App() {
     });
   }, []);
 
-  useEffect(() => {    
+  useEffect(() => {  
+      
     if(nameFilter !== "" && nameFilter !== undefined ){
       countriesService.getCountriesByName(nameFilter).then((data) => {
         setCountriesFiltered(data);
