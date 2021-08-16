@@ -33,8 +33,8 @@ export default function Filters(props:any) {
 				<label htmlFor="language" className="form__label">Language</label>
 				<input type="text" className="form__input" id="language" placeholder="E.g japanese" name="language" ref={refLanguage}/>
 
+				<button className="form__btn" onClick={handleSubmit}>Search<i className="material-icons" >search</i></button>
 			</form>
-			<button className="wrapper__btn" onClick={handleSubmit}>Search<i className="material-icons" >search</i></button>
 		</section>
 	)
 }

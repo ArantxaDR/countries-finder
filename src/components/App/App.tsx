@@ -29,7 +29,7 @@ function App() {
       countriesService.getCountriesByName(nameFilter).then((data) =>{
 
         countriesToShow = data;
-        console.log(data);
+      
         filterByRegionLanguage(countriesToShow);
       });
     } else {

@@ -44,7 +44,7 @@ export default function CountryDetail (props:any) {
 				</div>
 				<div className="country__details-text">
 					<h5 className="country__details-text__subtitle">Currencies: <span>{country.currencies[0].name}</span></h5>
-					<h5 className="country__details-text__subtitle">Languages: <span>{country.languages[0].name}</span></h5>
+					<h5 className="country__details-text__subtitle">Language: <span>{country.languages[0].name}</span></h5>
 				
 				</div>
 				

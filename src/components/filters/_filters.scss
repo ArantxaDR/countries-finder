@@ -20,11 +20,18 @@
 		padding: 0.2em;
 		margin-bottom: 1rem;
 	}
+	&__btn{
+		display: flex;
+		align-items: center;
+		background-color: $color-light;
+		border-radius: 10%;
+		margin-bottom: 0.2rem;
+	}
 }
 
 @media (min-width: 600px) and (max-width: 1000px)  {
     .wrapper{
-      margin-top: 1rem;
+      margin: 1rem;
     }
 	.form{
 		flex-direction: row;
