@@ -29,7 +29,7 @@
 - [Axios](https://github.com/axios/axios)
 - [Git](https://git-scm.com/)
 
-## :open_file_folder: Estructuración del código:
+## :open_file_folder: Code structure:
 
 - Common:
     - Interfaces and services used in the project.
