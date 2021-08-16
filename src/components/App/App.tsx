@@ -22,26 +22,40 @@ function App() {
     });
   }, []);
 
-  useEffect(() => {  
-      
-    if(nameFilter !== "" && nameFilter !== undefined ){
-      countriesService.getCountriesByName(nameFilter).then((data) => {
-        setCountriesFiltered(data);
+  useEffect(() => {
+    let countriesToShow: any[];
+
+    if(nameFilter !== "" && nameFilter !== undefined){
+      countriesService.getCountriesByName(nameFilter).then((data) =>{
+
+        countriesToShow = data;
+        console.log(data);
+        filterByRegionLanguage(countriesToShow);
       });
+    } else {
+      if(countries !== undefined)
+      filterByRegionLanguage(countries);
+
     }
-    
-    if(regionFilter !== "All" && regionFilter !== undefined ){
-      let countriesByRegion : any = countriesFiltered?.filter(country => country.region === regionFilter);
-      setCountriesFiltered(countriesByRegion);
-    }
-  
-    if(languageFilter !== ""  && languageFilter !== undefined ){
-    //https://stackoverflow.com/questions/66301241/how-to-filter-an-array-of-nested-objects-javascript
-	    let countriesByLanguage = countriesFiltered?.filter((country: { languages: any[]; }) => country.languages?.some((language: { iso639_1: string; }) => language.iso639_1 === languageFilter));
-      setCountriesFiltered(countriesByLanguage);
+      
+  }, [countries,nameFilter,regionFilter,languageFilter]);
+
+  const filterByRegionLanguage = (countriesToShow : any[]) => {
+
+    if(regionFilter !== "All" && regionFilter !== undefined){
+      let countriesByRegion : any = countriesToShow?.filter(
+        country => country.region === regionFilter);
+        countriesToShow = countriesByRegion;
     }
 
-  }, [nameFilter,regionFilter,languageFilter]);
+    if(languageFilter !== "" && languageFilter !== undefined){
+      //https://stackoverflow.com/questions/66301241/how-to-filter-an-array-of-nested-objects-javascript
+      let countriesByLanguage = countriesToShow?.filter((country: { languages: any[]; }) => country.languages?.some((language: { iso639_1: string; }) => language.iso639_1 === languageFilter));
+      countriesToShow = countriesByLanguage;
+    }
+
+    setCountriesFiltered(countriesToShow);
+  };
 
   const handleFilters = (filter:IFilter) => {
     if (filter.key === "name") {
@@ -49,10 +63,9 @@ function App() {
     } else if (filter.key === "region") {
       setRegionFilter(filter.value);
     } else if (filter.key === "language") {
-      setLanguageFilter(filter.value);
-      //console.log(filter);
+      setLanguageFilter(filter.value);    
     }
-    //setCountriesFiltered(countries);
+    
   };
   
   const renderCountryDetail = (props:any) => {
