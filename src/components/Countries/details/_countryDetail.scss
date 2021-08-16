@@ -1,1 +1,83 @@
 @import '../../../core/variables';
+
+.details__wrapper{
+	padding: 1rem;
+}
+.home{
+	display: flex;
+	align-items: center;
+	padding: 0.3rem;
+	margin-bottom: 1rem;
+}
+.detail__container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.detail__img{
+	width: 16rem;
+    height: fit-content;
+}
+.country__details .country__details-text{
+	margin: 1rem 0;
+}
+.country__details-text{
+	line-height: 120%;
+	&__title{
+	margin-bottom: 0.5rem;}
+	&__subtitle{
+		font-family: $font-secondary;
+		font-weight: bolder;
+		letter-spacing: 0.10em;
+	}
+	&__list{
+		display: flex;
+	}
+}
+span{
+	font-family: $font-primary;
+	font-size: small;
+}
+
+@media (min-width: 600px) and (max-width: 1000px){
+	
+	.home_link{
+		position: relative;
+    	left: 5rem;
+	}
+	.country__details{
+		margin-top: 1rem;
+		&-text__title{
+			text-align: center;
+		}
+	}
+	
+	
+} 
+
+@media (min-width:1001px){
+	.detail__img{
+		width: 25rem;
+		margin-right: 9rem;
+	}
+	.detail__container{
+		display: flex;
+    	flex-direction: row;
+    	justify-content: center;
+    	align-items: center;
+	}
+	.country__details-text{
+		&__title{
+		font-size: 2em;
+		margin-bottom: 1.5rem;}
+		&__subtitle{
+			font-size: 1.2rem;
+			line-height: 150%;
+		}
+	}
+	span{
+		font-size: 1rem;
+	}
+
+}
