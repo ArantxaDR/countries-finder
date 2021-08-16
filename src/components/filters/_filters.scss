@@ -23,9 +23,13 @@
 	&__btn{
 		display: flex;
 		align-items: center;
-		background-color: $color-light;
 		border-radius: 10%;
 		margin-bottom: 0.2rem;
+		padding: 0.1rem;
+		&:hover{
+			background-color: $color-dark;
+			color: $color-primary;
+		}
 	}
 }
 

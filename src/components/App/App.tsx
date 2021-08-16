@@ -6,6 +6,7 @@ import CountryDetail from '../Countries/details/CountryDetail';
 import { countriesService } from '../../common/services/CountriesService';
 import { IFilter } from '../../common/interfaces/IFilter';
 import { Route } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 
 function App() {
 
@@ -82,6 +83,7 @@ function App() {
 
 
   return (
+    <>
     <main className="App">
      
       <Header handleFilters={handleFilters}/>
@@ -95,6 +97,8 @@ function App() {
       </Route>
         
     </main>
+    <Footer/>
+</>
   );
 }
 
