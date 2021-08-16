@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# Country finder App 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## :computer: Start the project:
 
-## Available Scripts
+- Install dependencies 
+```
+# npm install
+```
 
-In the project directory, you can run:
 
-### `npm start`
+- Start the project and try it the development in URL '//localhost:3000/#/'
+```
+# npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Build the production 
+```
+# npm run build
+```
 
-### `npm test`
+### :wrench: Tools
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [React](https://es.reactjs.org/)
+    - [React-Router-Dom](https://reactrouter.com/web/guides/quick-start)
+- [Typescript](https://www.typescriptlang.org/docs/handbook/react.html)
+- [Sass](https://sass-lang.com/)
+- [WorldMap](https://www.npmjs.com/package/react-svg-worldmap)
+- [Axios](https://github.com/axios/axios)
+- [Git](https://git-scm.com/)
 
-### `npm run build`
+## :open_file_folder: Estructuración del código:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Common:
+    - Interfaces and services used in the project.
+- Components: 
+    - Where all the compenents live. Each folder has its own stylesheet.
+        - App
+        - Countries:
+			- card
+			- details
+			- list
+        - Filters
+        - Header
+        - Footer
+- Core: 
+    - Variables used in the styles.
