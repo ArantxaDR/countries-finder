@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { WorldMap } from 'react-svg-worldmap';
+import { ICountry } from '../../../common/interfaces/ICountry';
 import './_countryDetail.scss';
 
 export default function CountryDetail (props:any) {
@@ -10,7 +11,7 @@ export default function CountryDetail (props:any) {
 		return <h1>Ups! Wrong path</h1>;
 	}
 
-	const country =props.country;
+	const country : ICountry =props.country;
 	
 	const data =
 	[

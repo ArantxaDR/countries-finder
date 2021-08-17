@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useEffect , useState} from 'react'
 import CountriesCard from '../Countries/card/CountriesCard';
+import ls from '../../common/services/LocalStorageService';
 import './_favCountries.scss';
 import { Link } from 'react-router-dom';
+import { ICountry } from '../../common/interfaces/ICountry';
 
-export default function FavCountries(props: any) {
+export default function FavCountries() {
+	const [favs, setFavs] = useState<ICountry[]>([]);
+	
+	useEffect(() => {
+		const  favoritCountries : ICountry[] = ls.get("favoritCountries", []);
+    setFavs(favoritCountries);			
+		}, []);
 
-	let countriesList = props.countries?.map((country:any) =>{		
+	let countriesList = favs.map((country:ICountry) =>{		
 		return <CountriesCard key={country.alpha2Code} country={country} />
 	})
 

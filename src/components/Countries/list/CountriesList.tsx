@@ -2,11 +2,14 @@ import React from 'react'
 import './_countriesList.scss';
 import CountriesCard from '../card/CountriesCard'
 import { Link } from 'react-router-dom';
+import { ICountry } from '../../../common/interfaces/ICountry';
 
 
 export default function CountriesList(props:any) {
 
-	let countriesList = props.countries?.map((country:any) =>{		
+	const countries : ICountry[] = props.countries;
+
+	let countriesList  = countries?.map((country:ICountry) =>{		
 		return <CountriesCard key={country.alpha2Code} country={country} />
 	})
 
