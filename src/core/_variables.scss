@@ -10,3 +10,19 @@ $color-secondary:#000;
 $color-backcards: #8c8c8c;
 $color-dark: #666666;
 $color-light: #eeeeee;
+
+//keyframe
+
+@keyframes titleAnimation {
+	0% {
+	  opacity: 0;
+	  transform: translateX(-100px);
+	}
+	20%,80% {
+	  opacity: 1;
+	  transform: translateX(0);
+	}
+	100% {
+	  opacity: 0;
+	  transform: translateX(100px);}
+  }

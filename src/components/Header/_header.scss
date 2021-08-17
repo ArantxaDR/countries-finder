@@ -8,12 +8,17 @@
     &-title{
       font-family: $font-primary;
       text-align: center;
+      padding-top: 0.5rem;
       color:white;
       font-weight: bold;
-      padding-top: 1rem;
       letter-spacing: 0.25em;
       word-spacing: 0.25em;
       text-transform: uppercase;
+      animation-name: titleAnimation;
+      animation-duration: 5s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
     }
   }
 
