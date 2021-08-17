@@ -1,22 +1,26 @@
 import React, { useEffect, useState }from 'react';
-import { countriesService } from '../../common/services/CountriesService';
-import { IFilter } from '../../common/interfaces/IFilter';
 import { Route } from 'react-router-dom';
+import { countriesService } from '../../common/services/CountriesService';
+import { ICountry, ILanguages } from '../../common/interfaces/ICountry';
+import { IFilter } from '../../common/interfaces/IFilter';
+import ls from '../../common/services/LocalStorageService';
 import Header from '../Header/Header';
 import CountriesList from '../Countries/list/CountriesList';
 import CountryDetail from '../Countries/details/CountryDetail';
 import Footer from '../Footer/Footer';
 import FavCountries from '../Favs/FavCountries';
 import './App.scss';
-import { ICountry, ILanguages } from '../../common/interfaces/ICountry';
+
 
 function App() {
 
    const [countries, setCountries] = useState<ICountry[]>(); 
    const [countriesFiltered, setCountriesFiltered] = useState<ICountry[]>(); 
+   const [favs, setFavs] = useState<ICountry[]>([]);
    const [nameFilter, setNameFilter] = useState<string>();
    const [regionFilter, setRegionFilter] = useState<string>();
    const [languageFilter, setLanguageFilter] = useState<string>();
+   
       
   useEffect(() => {
     countriesService.getAllCountries().then((data) => {
@@ -24,6 +28,11 @@ function App() {
       setCountriesFiltered(data);            
     });
   }, []);
+
+  useEffect(() => {
+		const  favoritCountries : ICountry[] = ls.get("favoritCountries", []);
+    setFavs(favoritCountries);	    		
+		}, []);
 
   useEffect(() => {
     let countriesToShow: ICountry[];
@@ -42,6 +51,7 @@ function App() {
     }
       
   }, [countries,nameFilter,regionFilter,languageFilter]);
+  
 
   const filterByRegionLanguage = (countriesToShow : ICountry[]) => {
 
@@ -80,7 +90,6 @@ function App() {
     return <CountryDetail country={findCountry} />;
   };
 
-  
   return (
     <>
     <main className="App">
@@ -88,13 +97,13 @@ function App() {
       <Header handleFilters={handleFilters}/>
       
       <Route exact path ="/">
-      <CountriesList countries = {countriesFiltered}/>
+      <CountriesList countries = {countriesFiltered} setFavs={setFavs}/>
       </Route>
       <Route path="/countries/:name" render= 
       {renderCountryDetail}>
       </Route>
       <Route path="/favcountries">
-      <FavCountries />
+      <FavCountries favs={favs} setFavs={setFavs} />
       </Route>
     </main>
     <Footer/>

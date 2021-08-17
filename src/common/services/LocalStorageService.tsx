@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 const get = (key : string, defaultData : any) => {
     const data = JSON.parse(localStorage.getItem(key)!);
     return data === null ? defaultData : data;

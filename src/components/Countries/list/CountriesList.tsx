@@ -1,8 +1,9 @@
-import React from 'react'
-import './_countriesList.scss';
-import CountriesCard from '../card/CountriesCard'
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { ICountry } from '../../../common/interfaces/ICountry';
+import CountriesCard from '../card/CountriesCard';
+import './_countriesList.scss';
+
 
 
 export default function CountriesList(props:any) {
@@ -10,7 +11,7 @@ export default function CountriesList(props:any) {
 	const countries : ICountry[] = props.countries;
 
 	let countriesList  = countries?.map((country:ICountry) =>{		
-		return <CountriesCard key={country.alpha2Code} country={country} />
+		return <CountriesCard key={country.alpha2Code} country={country} setFavs={props.setFavs} />
 	})
 
 	return (

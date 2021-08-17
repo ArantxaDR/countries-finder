@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './_countriesCard.scss';
 import { Link } from "react-router-dom";
-import ls from '../../../common/services/LocalStorageService';
 import { ICountry } from '../../../common/interfaces/ICountry';
+import ls from '../../../common/services/LocalStorageService';
+import './_countriesCard.scss';
 
 export default function CountriesCard(props:any) {
 	const [favoritIconColor, setFavoritIconColor] = useState<string>("black");
@@ -16,7 +16,7 @@ export default function CountriesCard(props:any) {
 		{
 			setFavoritIconColor("yellow");			
 		}			
-	  }, []);
+	  }, [country.alpha2Code]);
 
 	
 	const favoritClickHandler = (ev:any) => {
@@ -43,12 +43,14 @@ export default function CountriesCard(props:any) {
 		favoritCountries.push(country);		
 		ls.set("favoritCountries", favoritCountries);
 		setFavoritIconColor("yellow");
+		props.setFavs(favoritCountries);
 	}
 
 	const removeCountryFromFavorits = (favoritCountries : ICountry[]) => {		
 		const newFavoritCountries : ICountry[]  = favoritCountries.filter(favoritCountry  => favoritCountry.alpha2Code !== country.alpha2Code);
 		ls.set("favoritCountries", newFavoritCountries);
 		setFavoritIconColor("black");
+		props.setFavs(newFavoritCountries);
 	}
 
 	
