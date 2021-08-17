@@ -8,3 +8,11 @@
     grid-auto-rows: auto;
 	gap: 1rem;
 }
+.fav__link{
+	text-align: center;
+	color: $color-dark;
+	&:hover{
+		text-decoration: underline;
+		color: $color-secondary;
+	}
+}

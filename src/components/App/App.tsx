@@ -1,12 +1,14 @@
 import React, { useEffect, useState }from 'react';
-import './App.scss';
-import Header from '../Header/Header';
-import CountriesList from '../Countries/list/CountriesList';
-import CountryDetail from '../Countries/details/CountryDetail';
 import { countriesService } from '../../common/services/CountriesService';
 import { IFilter } from '../../common/interfaces/IFilter';
 import { Route } from 'react-router-dom';
+import Header from '../Header/Header';
+import CountriesList from '../Countries/list/CountriesList';
+import CountryDetail from '../Countries/details/CountryDetail';
 import Footer from '../Footer/Footer';
+import FavCountries from '../Favs/FavCountries';
+import ls from '../../common/services/LocalStorageService';
+import './App.scss';
 
 function App() {
 
@@ -15,8 +17,9 @@ function App() {
    const [nameFilter, setNameFilter] = useState<string>();
    const [regionFilter, setRegionFilter] = useState<string>();
    const [languageFilter, setLanguageFilter] = useState<string>();
+   const [favs, setFavs] = useState<any[]>();
    
-   useEffect(() => {
+  useEffect(() => {
     countriesService.getAllCountries().then((data) => {
       setCountries(data);
       setCountriesFiltered(data);            
@@ -29,9 +32,9 @@ function App() {
     if(nameFilter !== "" && nameFilter !== undefined){
       countriesService.getCountriesByName(nameFilter).then((data) =>{
 
-        countriesToShow = data;
+      countriesToShow = data;
       
-        filterByRegionLanguage(countriesToShow);
+      filterByRegionLanguage(countriesToShow);
       });
     } else {
       if(countries !== undefined)
@@ -72,13 +75,16 @@ function App() {
   const renderCountryDetail = (props:any) => {
     
     const countryName = props.match.params.name;
-
       
     const findCountry = countries?.find((country) => country.name === countryName);
-   
-    
+       
     return <CountryDetail country={findCountry} />;
   };
+
+	useEffect(() => {
+		const  favoritCountries : any[] = ls.get("favoritCountries", []);
+    setFavs(favoritCountries);			
+		}, []);
   
 
 
@@ -87,15 +93,16 @@ function App() {
     <main className="App">
      
       <Header handleFilters={handleFilters}/>
-      {/* <WorldMap color="green" title ="Fav countries" size ="responsive" data = {data}/> */}
+      
       <Route exact path ="/">
       <CountriesList countries = {countriesFiltered}/>
       </Route>
       <Route path="/countries/:name" render= 
       {renderCountryDetail}>
-
       </Route>
-        
+      <Route path="/favcountries">
+      <FavCountries countries = {favs}/>
+      </Route>
     </main>
     <Footer/>
 </>
