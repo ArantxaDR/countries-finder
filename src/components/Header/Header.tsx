@@ -1,5 +1,5 @@
 import React from 'react'
-import Filters from '../Filters/Filters'
+import Filters from '../filters/Filters'
 
 export default function Header(props:any) {
 
