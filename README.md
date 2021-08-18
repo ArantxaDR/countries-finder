@@ -28,6 +28,7 @@
 - [WorldMap](https://www.npmjs.com/package/react-svg-worldmap)
 - [Axios](https://github.com/axios/axios)
 - [Git](https://git-scm.com/)
+- [Jest](https://jestjs.io/)
 
 ## :open_file_folder: Code structure:
 
@@ -37,11 +38,12 @@
     - Where all the compenents live. Each folder has its own stylesheet.
         - App
         - Countries:
-			- card
-			- details
-			- list
+			- Card
+			- Details
+			- List
         - Filters
         - Header
         - Footer
+        - Loading
 - Core: 
     - Variables used in the styles.
