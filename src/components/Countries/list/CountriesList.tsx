@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ICountry } from '../../../common/interfaces/ICountry';
 import Loading from '../../Loading/Loading';
-import CountriesCard from '../card/CountriesCard';
+import CountriesCard from '../Card/CountriesCard';
 import './_countriesList.scss';
 
 

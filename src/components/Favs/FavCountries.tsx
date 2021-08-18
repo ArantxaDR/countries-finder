@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { ICountry } from '../../common/interfaces/ICountry';
-import CountriesCard from '../Countries/card/CountriesCard';
+import CountriesCard from '../Countries/Card/CountriesCard';
 import './_favCountries.scss';
 
 
