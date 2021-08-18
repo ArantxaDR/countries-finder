@@ -20,12 +20,14 @@ function App() {
    const [nameFilter, setNameFilter] = useState<string>();
    const [regionFilter, setRegionFilter] = useState<string>();
    const [languageFilter, setLanguageFilter] = useState<string>();
-   
+   const [isLoading, setIsLoading] = useState(false);   
       
   useEffect(() => {
+    setIsLoading(true);
     countriesService.getAllCountries().then((data) => {
       setCountries(data);
-      setCountriesFiltered(data);            
+      setCountriesFiltered(data);   
+      setIsLoading(false);         
     });
   }, []);
 
@@ -35,6 +37,8 @@ function App() {
 		}, []);
 
   useEffect(() => {
+    
+    setIsLoading(true);
     let countriesToShow: ICountry[];
 
     if(nameFilter !== "" && nameFilter !== undefined){
@@ -68,6 +72,7 @@ function App() {
     }
 
     setCountriesFiltered(countriesToShow);
+    setIsLoading(false);
   };
 
   const handleFilters = (filter:IFilter) => {
@@ -98,7 +103,7 @@ function App() {
       <Header handleFilters={handleFilters}/>
       
       <Route exact path ="/">
-      <CountriesList countries = {countriesFiltered} setFavs={setFavs}/>
+      <CountriesList countries = {countriesFiltered} setFavs={setFavs} isLoading={isLoading}/>
       </Route>
       <Route path="/countries/:name" render= 
       {renderCountryDetail}>

@@ -1,0 +1,22 @@
+.loading__container{
+	
+	position: relative;
+	left: 5rem;
+	
+	
+}
+
+@media (min-width: 600px) and (max-width:1000px){
+	.loading__container{
+		left: 17rem;
+		top: 5rem
+		
+	}
+}
+
+@media (min-width: 1001px) {
+	.loading__container{
+		left: 30rem;
+		top: 6rem;
+	}
+}

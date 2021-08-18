@@ -2,9 +2,14 @@ import axios, { AxiosResponse } from 'axios';
 import {ICountry} from '../interfaces/ICountry';
 
 class CountriesService {
+    private apiUrl: string;
+    
+    constructor() {
+        this.apiUrl = 'https://restcountries.eu/rest/v2/';    
+    }
     
     public async getAllCountries(): Promise<ICountry[]>{        
-        let result: AxiosResponse= await axios.get(`https://restcountries.eu/rest/v2/all`);
+        let result: AxiosResponse= await axios.get(this.apiUrl + `all`);
         let countries : ICountry[];
         countries = result.data.map((item : ICountry)=> {
             const country :ICountry = {
@@ -26,7 +31,7 @@ class CountriesService {
     }
 
     public async getCountriesByName(countryName : string): Promise<ICountry[]>{       
-        let result: AxiosResponse = await axios.get('https://restcountries.eu/rest/v2/name/' + countryName);
+        let result: AxiosResponse = await axios.get(this.apiUrl + 'name/' + countryName);
         let countries : ICountry[];
         countries = result.data.map((item : ICountry)=> {
             const country :ICountry = {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ICountry } from '../../../common/interfaces/ICountry';
+import Loading from '../../Loading/Loading';
 import CountriesCard from '../card/CountriesCard';
 import './_countriesList.scss';
 
@@ -17,9 +18,18 @@ export default function CountriesList(props:any) {
 	return (
 		<>
 		<Link to="/favcountries"><h3 className="fav__link">See favorites countries</h3></Link>
-		<section className="cards">
-			{countriesList}
-		</section>
+		 {props.isLoading === false ? (
+              <Loading />
+            ) : (
+				<>
+				<section className="cards">
+				{countriesList}
+			</section>
+			</>
+	
+            )}
+
+		
 		</>
 	)
 }
