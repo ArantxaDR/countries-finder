@@ -18,7 +18,7 @@ export default function CountriesList(props:any) {
 	return (
 		<>
 		<Link to="/favcountries"><h3 className="fav__link">See favorites countries</h3></Link>
-		 {props.isLoading === false ? (
+		 {props.isLoading === true ? (
               <Loading />
             ) : (
 				<>

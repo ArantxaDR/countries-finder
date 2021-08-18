@@ -10,6 +10,7 @@ import CountryDetail from '../Countries/details/CountryDetail';
 import Footer from '../Footer/Footer';
 import FavCountries from '../Favs/FavCountries';
 import './App.scss';
+import { ISearch } from '../../common/interfaces/ISearch';
 
 
 function App() {
@@ -65,14 +66,14 @@ function App() {
         countriesToShow = countriesByRegion;
     }
 
-    if(languageFilter !== "" && languageFilter !== undefined){
-      //https://stackoverflow.com/questions/66301241/how-to-filter-an-array-of-nested-objects-javascript
+    if(languageFilter !== "" && languageFilter !== undefined){     
       let countriesByLanguage = countriesToShow.filter((country: { languages: ILanguages[]; }) => country.languages.some((language: { iso639_1: string; }) => language.iso639_1 === languageFilter));
       countriesToShow = countriesByLanguage;
     }
 
     setCountriesFiltered(countriesToShow);
-    setIsLoading(false);
+    saveLastSeach();
+    setIsLoading(false);    
   };
 
   const handleFilters = (filter:IFilter) => {
@@ -82,9 +83,20 @@ function App() {
       setRegionFilter(filter.value);
     } else if (filter.key === "language") {
       setLanguageFilter(filter.value);    
-    }
-    
+    }    
   };
+
+  
+  const saveLastSeach = () => {
+    let lastSearch : ISearch = {
+      name: nameFilter,
+      region: regionFilter,
+      language: languageFilter
+    }
+    const  searchHistory : ISearch[] = ls.get("searchHistory", []);
+    searchHistory.push(lastSearch);
+    ls.set("searchHistory", searchHistory);
+  }
   
   const renderCountryDetail = (props:any) => {
     
