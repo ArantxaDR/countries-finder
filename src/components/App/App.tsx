@@ -1,5 +1,5 @@
 import React, { useEffect, useState }from 'react';
-import { Route } from 'react-router-dom';
+import { Route, useHistory } from 'react-router-dom';
 import { countriesService } from '../../common/services/CountriesService';
 import { ICountry, ILanguages } from '../../common/interfaces/ICountry';
 import { IFilter } from '../../common/interfaces/IFilter';
@@ -22,6 +22,10 @@ function App() {
    const [regionFilter, setRegionFilter] = useState<string>();
    const [languageFilter, setLanguageFilter] = useState<string>();
    const [isLoading, setIsLoading] = useState(false);   
+
+   const history = useHistory();
+
+   const handleHistory = ()=> history.push("/");
       
   useEffect(() => {
     setIsLoading(true);
@@ -39,6 +43,7 @@ function App() {
 
   useEffect(() => {
     
+    handleHistory();
     setIsLoading(true);
     let countriesToShow: ICountry[];
 
